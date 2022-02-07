@@ -41,3 +41,23 @@ List of certified distros (adhere to K8s API guidelines)
     - Controller Manager
     - Scheduler
   - CoreDNS: services in your orchestrator
+
+## K8s API and Resource types
+K8s APIs are RESTful mostly
+Common resource types:
+1. node (machine, physical or virtual in the cluster)
+2. pod (group of containers running together in the node)
+3. service (network end point that connects to one or multiple containers)
+
+## Pods
+1. Abstraction
+2. can be multiple containers, usually one
+3. Smallest deployable unit
+4. K8s can't manage containers direcltly
+5. IP addresses are associated with pods, not containers
+6. containers in a pod can 
+    a. share localhost and comm bewteen containers
+    b. share volumes
+7. Docker doesn't know pods, only containers/namespaces/volumes
+
+
