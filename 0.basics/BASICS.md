@@ -29,13 +29,15 @@ List of certified distros (adhere to K8s API guidelines)
 
 ## K8s simple infrastructure
 [Simple Diagram](diagrams/K8s-Simple-Infra.png)
-- Nodes x 3
-  - Each running node has 4 containers
-  - Container runtime: ie. Docker
-  - Kube-proxy = networking
+[Alternative view](diagrams/K8s-Simple-infra-2.png)
+- Nodes consists:
+  - Container runtime/engine: ie. Docker
+  - kublet: node agent, comm with API
+  - Kube-proxy = needed for networking, but not enough
 - Control plane x 1:
+  - API Server(Inbound & Outbound): Heart and soul of K8s, comm between agents on the nodes(Kubelet)
   - [etcd](https://etcd.io/): key-value store db for config, app run instructions
-  - API Server(Inbound & Outbound): Heart and soul of K8s, comm between agents on the nodes(Kubelet) 
-    - Controls: Controller Manager
-    - Controls: Scheduler
+  - Core Services:
+    - Controller Manager
+    - Scheduler
   - CoreDNS: services in your orchestrator
