@@ -1,35 +1,60 @@
-# kubectl
+# kubectl (alias to k)
 - only tool we need to talk to Kubernetes
 - ~/.kube/config file
   - K8s API addresses
   - path to TLS certificates to authenticate
 - --kubeconfig flag to pass a config file, or directly with --server, --user
 
-## kubectl get
-kubectl get node/no/nodes
+## k get
+k get node/no/nodes
 
 outputs:
-kubectl get node -o wide
-kubectl get no -o yaml
+k get node -o wide
+k get no -o yaml
 
 with jq:
-kubectl get nodes -o json | 
+k get nodes -o json | 
 jq ".items[] | {name:.metadata.name} + .status.capacity" > filename.json
 
-## kubectl describe
+## get services
+Service is an abstraction which defines a logical set of Pods and a policy by which to access them
+
+k get services/svc
+
+## get pods
+closest thing to getting all running containers
+
+k get pods
+
+## Namespaces
+segregation of resources
+
+k get namespaces/ns
+
+k get pods --all
+
+k get pods --all-namespaces
+
+in an fresh environment like mine, kube-system namespaces will show
+all of the parts that makes up the K8s infrastructure,
+such as etcd, coredns, apiserver, controller, scheduler ...
+
+<net name> is not shown, but it is the optional(per node) component managing the network overlay
+
+## k describe
 more ways to get extra info from outputs
 
-kubectl describe <type>/<name>
+k describe <type>/<name>
 
 ## types and definitions
 list all available resource types:
-kubectl api-resources
+k api-resources
 
 define a type:
-kubectl explain <type>
+k explain <type>
 
-view a specific field:
-kubectl explain node.spec
+view a specific field (introspection documentation):
+k explain node.spec
 
 list of all fields and subfields:
-kubectl explain node --recursive
+k explain node --recursive
