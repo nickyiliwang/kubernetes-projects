@@ -2,7 +2,7 @@
 This is a collection of all my kubernetes projects
 
 [basics](0.basics/basics.md)
-[kubectl-commands](0.basics/kubectl-commands.md)
+[kubectl commands](0.basics/kubectl-cmd.md)
 
 ## Util commands:
 1st window, attach:
