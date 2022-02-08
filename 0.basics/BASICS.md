@@ -53,11 +53,29 @@ Common resource types:
 1. Abstraction
 2. can be multiple containers, usually one
 3. Smallest deployable unit
-4. K8s can't manage containers direcltly
+4. K8s can't manage containers directly
 5. IP addresses are associated with pods, not containers
 6. containers in a pod can 
-    a. share localhost and comm bewteen containers
+    a. share localhost and comm between containers
     b. share volumes
 7. Docker doesn't know pods, only containers/namespaces/volumes
 
+## minicube
+minikube start / stop when using K8s
+
+## [shpod](https://slides.kubernetesmastery.com/#142)
+[shpod FAQ](https://www.udemy.com/course/kubernetesmastery/learn/lecture/21042696#questions)
+
+shpod provides a shell running in a pod on the cluster
+It comes with many tools pre-installed (helm, stern, curl, jq...)
+shpod also gives you shell completion and a fancy prompt
+
+Create:
+kubectl apply -f https://k8smastery.com/shpod.yaml
+
+Attach to shell:
+kubectl attach --namespace=shpod -ti shpod
+
+After finishing course:
+kubectl delete -f https://k8smastery.com/shpod.yaml
 
